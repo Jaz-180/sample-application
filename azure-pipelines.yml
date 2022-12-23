@@ -25,7 +25,7 @@ steps:
 # Build or push Docker images, login or logout, start or stop containers, or run a Docker command.
 - task: Docker@2
   inputs:
-    repository: jaz-180/sample-application
+    repository: jaseem180/sample-app-frontend
     command: 'buildAndPush' 
     Dockerfile: './sample-frontend/Dockerfile'
     tags: 1.0.2
