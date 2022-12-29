@@ -1,13 +1,15 @@
+
+
 apiVersion: apps/v1
 kind: Deployment                                          # 1
 metadata:
-  name: sample-frontend
+  name: coit-frontend
   labels:
-    app: sample-frontend
+    app: coit-frontend
 spec:
   selector:
     matchLabels:
-      app: sample-frontend
+      app: coit-frontend
   replicas: 3                                             # 2
   minReadySeconds: 15
   strategy:
@@ -18,13 +20,13 @@ spec:
   template:
     metadata:
       labels:
-        app: sample-frontend                                  # 6
+        app: coit-frontend                                  # 6
     spec:
-      serviceAccountName: sample-frontend
+      serviceAccountName: coit-frontend
       containers:
         - image: jaseem180/sample-app-frontend:latest
           imagePullPolicy: IfNotPresent                         # 7
-          name: sample-frontend
+          name: coit-frontend
           livenessProbe:
             exec:
               command:
@@ -50,7 +52,7 @@ spec:
             - name: JAVA_APP_URL
               valueFrom:
                 configMapKeyRef:
-                  name: sample-frontend-config
+                  name: coit-frontend-config
                   key: JAVA_URL
             - name: SMS_API
               valueFrom:
