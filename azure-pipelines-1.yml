@@ -18,11 +18,6 @@ steps:
     jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/sample-backend1/pom-*.xml'
     goals: 'package'
-- script: |
-    echo Entering sample-backend1
-    cd sample-backend1
-    echo Starting the build
-    mvn package
-  displayName: 'npm install and build'
+
